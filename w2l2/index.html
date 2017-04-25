@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../core/css/reveal.css">
+		<link rel="stylesheet" href="../core/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../core/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../core/css/print/pdf.css' : '../core/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h4>CSS BOX MODEL</h4>
+					<img src="img/box-model.png" />
+				</section>
+				<section data-background="#dddddd" data-background-transition="zoom">
+					<h4>Calculation formula</h4>
+					<dl>
+						<dt style="color:#084d73">Total width:</dt>
+						<dd style="font-size:80%">margin-right + border-right + padding-right + width + padding-left + border-left + margin-left</dd>
+						<dt style="color:#084d73">Total height:</dt>
+						<dd style="font-size:80%">margin-top + border-top + padding-top + height + padding-bottom + border-bottom + margin-bottom</dd>
+					</dl>
+				</section>
+				<section>
+					<h4>Width</h4>
+					<ul style="list-style: decimal; color: #FF80AB; font-size:80%">
+						<li>Default width depends on the element's display value.</li>
+						<li>Block elements have a default width of 100%.</li>
+						<li>Inline elements doen' accept width property, but can accept their corresponding values</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Height</h4>
+					<ul style="list-style: decimal; color: #FF80AB; font-size:80%">
+						<li>Default Depends on the element' content</li>
+						<li>Inline elements doen' accept height property, but can accept their corresponding values</li>
+					</ul>
+				</section>
+				<section data-background="#B2DFDB" data-background-transition="zoom">
+					<h4>Margin</h4>
+					<ul style="list-style: decimal; color: #004D40; font-size:80%">
+						<li>Depentds on browser</li>
+						<li>Works normal for blocks</li>
+						<li>Vertical margins are not acceptable to inline elements</li>
+					</ul>
+				</section>
+				<section data-background="#B2DFDB" data-background-transition="zoom">
+					<h4>Padding</h4>
+					<ul style="list-style: decimal; color: #004D40; font-size:80%">
+						<li>Depentds on browser</li>
+						<li>Works normal for blocks</li>
+						<li>Falls inside the element</li>
+						<li>Works for inline elements, on all sides</li>
+					</ul>
+				</section>
+				<section data-background-transition="zoom">
+					<h4>Borders</h4>
+					<ul style="list-style: decimal; color: #FF80AB; font-size:80%">
+						<li>Requires width, style, and color</li>
+						<li>Can be defined using common CSS units of length</li>
+						<li>Can be placed on one side of an element at a time</li>
+						<li>border-radius property</li>
+						<li>They move in a clockwise fashion starting at the top left of an element</li>
+					</ul>
+				</section>
+				<section data-background-transition="zoom">
+					<h4>Box Sizing</h4>
+					<ul style="list-style: decimal; color: #FF80AB; font-size:80%">
+						<li>Calculation</li>
+						<li>Accepts: content-box, padding-box and border-box</li>
+					</ul>
+				</section>
+				<section data-background-transition="zoom">
+					<h4>Content-box</h4>
+					<ul style="list-style: decimal; color: #FF80AB; font-size:80%">
+						<li>content-box value is the default value</li>
+						<li>The size of an element begins with the width and height properties, and then any padding, border, or margin property values are added</li>
+					</ul>
+					<code class="hljs" data-trim contenteditable style="text-align:left;padding-left: 5%;">
+						div {<br>
+						<p style="padding-left:5%">
+						-webkit-box-sizing: content-box;<br>
+						-moz-box-sizing: content-box;<br>
+						box-sizing: content-box;<br>
+						</p>
+						}
+					</code>
+				</section>
+				<section data-background-transition="zoom">
+					<h4>Padding Box</h4>
+					<ul style="list-style: decimal; color: #FF80AB; font-size:80%">
+						<li>Alters the box model by including any padding property values within the width and height of an element</li>
+						<li>if an element has a width of 400 pixels and a padding of 20 pixels around every side, the actual width will remain 400 pixels</li>
+					</ul>
+					<code class="hljs" data-trim contenteditable style="text-align:left;padding-left: 5%;">
+						div {<br>
+						<p style="padding-left:5%">
+							-webkit-box-sizing: padding-box;
+						</p>
+						}
+					</code>
+				</section>
+				<section data-background-transition="zoom">
+					<h4>Border Box</h4>
+					<ul style="list-style: decimal; color: #FF80AB; font-size:80%">
+						<li>Alters the box model so that any border or padding property values are included within the width and height of an element</li>
+						<li>if an element has a width of 400 pixels, a padding of 20 pixels around every side, and a border of 10 pixels around every side, the actual width will remain 400 pixels</li>
+					</ul>
+					<code class="hljs" data-trim contenteditable style="text-align:left;padding-left: 5%;">
+						div {<br>
+						<p style="padding-left:5%">
+							-webkit-box-sizing: border-box;
+						</p>
+						}
+					</code>
+				</section>
+				<section data-background="#dddddd">
+					<h4>Box sizing</h4>
+					<ul style="list-style: decimal; font-size:80%">
+						<li style="color:#084d73">Border box is the best solution</li>
+						<li style="color:#084d73">Doesn' have support in all browsers</li>
+					</ul>
+					<img src="img/box-sizing.png" />
+				</section>
+			</div>
+		</div>
+
+		<script src="../core/lib/js/head.min.js"></script>
+		<script src="../core/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
